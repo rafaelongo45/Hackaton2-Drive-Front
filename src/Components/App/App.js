@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState, useContext } from 'react';
 
 import Home from ".././Home/Home";
-import Question from '../Question/Question';
 import RenderSignUp from ".././SignUp/SignUp";
 import RenderSignIn from ".././SignIn/SignIn";
 import Question from '../Question/Question';
