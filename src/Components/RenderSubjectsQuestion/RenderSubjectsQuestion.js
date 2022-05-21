@@ -1,8 +1,26 @@
 import Header from "../Header/Header";
 import styled from "styled-components";
 import RenderSubjectQuestion from "../RenderSubjectQuestion/RenderSubjectQuestion";
+import axios from 'axios';
+import { useEffect } from "react";
+import { useState } from "react";
 
 function RenderSubjectsQuestion() {
+
+  const [materias, setMaterias] = useState([]);
+
+  useEffect(() => {
+
+    const URLBASE = 'https://hackathon2-driven.herokuapp.com/subjects'
+    const promise = axios.get(`${URLBASE}`);
+    
+    promise.then((promise) => { setMaterias([...promise.data]); });
+
+    promise.catch((err)=>{ alert('Ocorreu um erro:' + err );  });
+
+
+  } , [materias]);
+/*
   const subjectsArray = [
     "Matemática",
     "Física",
@@ -16,15 +34,15 @@ function RenderSubjectsQuestion() {
     "História",
     "Sociologia",
     "Literatura",
-  ];
+  ];*/
 
   return (
     <>
       <Header />
       <Main>
         <SubjectSubjects>
-          {subjectsArray.map((subject) => {
-            return <RenderSubjectQuestion subject={subject} />;
+          {materias?.map(({_id, subject}) => {
+            return <RenderSubjectQuestion idSubject={_id} subject={subject} />;
           })}
         </SubjectSubjects>
       </Main>

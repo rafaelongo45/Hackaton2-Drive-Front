@@ -1,9 +1,11 @@
+import { Link }  from 'react-router-dom';
+
 import styled from 'styled-components'
 
 function Footer(){
   return (
     <RenderFooter>
-      <button>Fazer uma pergunta</button>
+      <Link to={'/subjects'}> <button>Fazer uma pergunta</button> </Link>
     </RenderFooter>
   )
 }

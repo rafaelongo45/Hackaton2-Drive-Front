@@ -1,9 +1,9 @@
 import styled from "styled-components";
-
-function RenderSubjectQuestion({ subject }) {
+import { Link }  from 'react-router-dom';
+function RenderSubjectQuestion({idSubject,subject }) {
   return (
     <SubjectQuestion>
-      <p>{subject}</p>
+      <Link to={`/subject/${idSubject}/questions`}> <p>{subject}</p> </Link> 
     </SubjectQuestion>
   );
 }
