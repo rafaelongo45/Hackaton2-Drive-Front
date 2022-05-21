@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 import subjectContext from '../Contexts/UserContexts';
 
@@ -8,15 +8,16 @@ function RenderQuestions({question}){
   const {subject, setSubject} = useContext(subjectContext);
   const navigate = useNavigate();
 
-  function changeRoute(id){
-    setSubject({id: id})
-    navigate(`questions/${id}`)
-  }
+  // function changeRoute(id){
+  //   setSubject({id: id})
+  //   navigate(`questions/${id}`)
+  // }
+
   return (
         <Question>
           <h1>{question.title}</h1>
           <p>{question.question}</p>
-          <Button onClick={() => changeRoute(question._id)}>Visualizar</Button>
+          <Link to = {`questions/${question._id}`}><Button >Visualizar</Button></Link>
         </Question> 
   )
 }
