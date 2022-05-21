@@ -22,9 +22,9 @@ function App(){
           <Route path = '/' element={<Home />}/>
           <Route path = '/signup' element={<RenderSignUp />}/>
           <Route path = '/signin' element={<RenderSignIn />}/>
-          <Route path = '/subjects-question' element={<RenderSubjectsQuestion />}/>
-          <Route path = '/user-question' element={<QuestionPage />}/>
-          <Route path = '/question' element = {<Question />} />
+          <Route path = '/subjects' element={<RenderSubjectsQuestion />}/>
+          <Route path = '/subject/questions' element={<QuestionPage />}/>
+          <Route path = '/questions/:id' element = {<Question />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
