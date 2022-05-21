@@ -2,9 +2,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
 
 import Home from ".././Home/Home";
+import Question from '../Question/Question';
 import RenderSignUp from ".././SignUp/SignUp";
 import RenderSignIn from ".././SignIn/SignIn";
-import Question from '../../Question/Question';
+import PostAnswer from '../Question/RenderPostAnswer';
 import RenderSubjectsQuestion from ".././RenderSubjectsQuestion/RenderSubjectsQuestion";
 import QuestionPage from ".././QuestionPage/QuestionPage";
 
@@ -25,6 +26,8 @@ function App(){
           <Route path = '/subjects' element={<RenderSubjectsQuestion />}/>
           <Route path = '/subject/:idSubject/questions' element={<QuestionPage />}/>
           <Route path = '/questions/:id' element = {<Question />} />
+          <Route path = '/subject/questions' element={<QuestionPage />}/>
+          <Route path = '/answer' element = {<PostAnswer />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
