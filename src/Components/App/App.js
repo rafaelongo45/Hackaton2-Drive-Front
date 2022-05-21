@@ -1,24 +1,23 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
 import Home from ".././Home/Home";
-import Question from '../Question/Question';
 import RenderSignUp from ".././SignUp/SignUp";
 import RenderSignIn from ".././SignIn/SignIn";
+import Question from '../Question/Question';
 import PostAnswer from '../Question/RenderPostAnswer';
 import RenderSubjectsQuestion from ".././RenderSubjectsQuestion/RenderSubjectsQuestion";
 import QuestionPage from ".././QuestionPage/QuestionPage";
 
 
-import UserContext from "../Contexts/UserContexts";
+import subjectContext from "../Contexts/UserContexts";
 
 function App(){
- // const {userData, setUserData} = useContext(UserContext);
-  const [userData, setUserData] = useState({});
+  const [subject, setSubject] = useState({id: '0'})
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value ={ {userData, setUserData}}>
+      <subjectContext.Provider value={ { subject, setSubject} }>
         <Routes>
           <Route path = '/' element={<Home />}/>
           <Route path = '/signup' element={<RenderSignUp />}/>
@@ -29,7 +28,7 @@ function App(){
           <Route path = '/subject/questions' element={<QuestionPage />}/>
           <Route path = '/answer' element = {<PostAnswer />} />
         </Routes>
-      </UserContext.Provider>
+      </subjectContext.Provider>
     </BrowserRouter>
   )
 }

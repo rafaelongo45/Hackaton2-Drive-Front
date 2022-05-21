@@ -1,8 +1,28 @@
 import styled from 'styled-components';
+import axios from 'axios';
+import {useContext, useState, useEffect } from 'react'
 
+import subjectContext from '../Contexts/UserContexts';
 import { FaUserGraduate } from 'react-icons/fa';
 
 function RenderQuestion(){
+  const { subject, setSubject } = useContext(subjectContext);
+  const [answers, setAnswers] = useState([]);
+
+  useEffect(() => {
+    const promise = axios.get(`https://hackathon2-driven.herokuapp.com/questions/${subject}`);
+
+    promise.then((response) => {
+      console.log(response)
+      setAnswers(response.data);
+    })
+
+    promise.catch((e) => {
+      alert('Deu erro ai em', e)
+    })
+
+  }, [])
+
   return (
     <QuestionPage>
       <Title>Pergunta</Title>
