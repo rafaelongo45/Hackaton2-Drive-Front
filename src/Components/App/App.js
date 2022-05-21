@@ -4,8 +4,8 @@ import { useState } from 'react';
 import Home from ".././Home/Home";
 import RenderSignUp from ".././SignUp/SignUp";
 import RenderSignIn from ".././SignIn/SignIn";
+import Question from '../../Question/Question';
 import RenderSubjectsQuestion from ".././RenderSubjectsQuestion/RenderSubjectsQuestion";
-import Question from ".././Question/Question";
 
 import UserContext from "../Contexts/UserContexts";
 
@@ -21,7 +21,7 @@ function App(){
           <Route path = '/signup' element={<RenderSignUp />}/>
           <Route path = '/signin' element={<RenderSignIn />}/>
           <Route path = '/subjects-question' element={<RenderSubjectsQuestion />}/>
-          <Route path = '/question' element={<Question />}/>
+          <Route path = '/question' element = {<Question />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>

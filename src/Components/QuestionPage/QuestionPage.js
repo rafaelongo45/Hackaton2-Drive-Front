@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-function Question(){
+function QuestionPage(){
   return (
-    <Question>
+    <QuestionPage>
     
-    </Question>
+    </QuestionPage>
   )
 }
 
 const Question = styled.div``
 
-export default Question;
+export default QuestionPage;
