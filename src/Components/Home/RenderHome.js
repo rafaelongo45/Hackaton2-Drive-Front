@@ -1,3 +1,4 @@
+import axios from 'axios';
 import styled from 'styled-components';
 
 import RenderSubject from './RenderSubject';
@@ -7,7 +8,7 @@ function RenderHome(){
 
   return (
     <Principal>
-      <h1>Selecione uma matéria</h1>
+      <Title>Selecione uma matéria</Title>
       <Subjects>   
         {
           subjectsArray.map(subject => {
@@ -17,10 +18,13 @@ function RenderHome(){
       </Subjects>
 
       <Questions>
+
         <Question>
           <h1>Título da pergunta</h1>
           <p>Descrição da pergunta</p>
-        </Question>
+          <Button>Visualizar</Button>
+        </Question> 
+
       </Questions>
 
     </Principal>
@@ -30,16 +34,18 @@ function RenderHome(){
 export default RenderHome;
 
 const Principal = styled.main`
-  margin: 90px auto 100px auto;
+  margin: 90px auto 60px auto;
   height: 100%;
   position: relative;
+`
 
-  h1:first-child{
-    margin-bottom: 10px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: 700;
-  }
+const Title = styled.h1`
+  margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  width: 100%;
+  display: flex;
+  justify-content:center;
 `
 
 const Subjects = styled.article`
@@ -58,24 +64,50 @@ const Subjects = styled.article`
 `
 
 const Questions = styled.article`
-  margin-top: 120px;
+  margin: 130px auto 0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  flex-direction:column;
+  align-items:center;
 `
 
 const Question = styled.section`
   width: 353px;
   height: 96px;
   display: flex;
+  flex-wrap:wrap;
   align-items: flex-start;
-  margin: 0 5px;
-  background: red;
-  
+  background: #6495ED;
+  border-radius: 12px;
+  padding-left: 10px; 
+  position: relative;
+  box-shadow:4px 7px 15px -2px rgba(0,0,0,0.42);
+  margin-bottom: 15px;
+
   h1{
-    margin-top: 15px;
+    margin-top: 13px;
     font-size: 18px;
+    width: 75%;
+    font-weight: 700;
   }
 
   p{
-    font-size: 16px;
-    height: fit-content;
+    width: 70%;
+    font-size: 14px;
+    height: 50%;
   }
+`
+
+const Button = styled.button`
+  position:absolute;
+  right: 20px;
+  top: 33px;
+  border: none;
+  border-radius: 6px;
+  color: #454749;
+  font-weight: 700;
+  height: 30px;
+  font-size: 14px;
+  box-shadow:4px 7px 15px -2px rgba(0,0,0,0.42);
+  background-color: var(--button-color);
 `
