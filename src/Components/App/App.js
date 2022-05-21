@@ -5,7 +5,7 @@ import Home from ".././Home/Home";
 import RenderSignUp from ".././SignUp/SignUp";
 import RenderSignIn from ".././SignIn/SignIn";
 import RenderSubjectsQuestion from ".././RenderSubjectsQuestion/RenderSubjectsQuestion";
-import Question from ".././Question/Question";
+import QuestionPage from "../QuestionPage/QuestionPage";
 
 import UserContext from "../Contexts/UserContexts";
 
@@ -21,7 +21,7 @@ function App(){
           <Route path = '/signup' element={<RenderSignUp />}/>
           <Route path = '/signin' element={<RenderSignIn />}/>
           <Route path = '/subjects-question' element={<RenderSubjectsQuestion />}/>
-          <Route path = '/question' element={<Question />}/>
+          <Route path = '/user-question' element={<QuestionPage />}/>
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
